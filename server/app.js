@@ -21,6 +21,15 @@ mongoose.Promise = Promise;
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error"))
 
+if (process.env.NODE_ENV === "development") {
+    var corsOptions = {
+        origin: "http://localhost:3000",
+        optionsSuccessStatus: 200,
+    };
+    app.use(cors(corsOptions))
+}
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
