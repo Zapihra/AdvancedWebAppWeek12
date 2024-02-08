@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/api/book', function(req,res) {
   var body = req.body
+  console.log(body)
 
   const book = new Book({
     name: body.name,
