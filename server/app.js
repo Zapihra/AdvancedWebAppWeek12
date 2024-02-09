@@ -29,7 +29,7 @@ app.use('/users', usersRouter);
 if (process.env.NODE_ENV === "produnction") {
     app.use(express.static(path.resolve("..", "client", "build")));
     app.get("*", (req,res) =>
-        res.sendFile(path.resolve("..","client", "index.html"))
+        res.sendFile(path.resolve("..", "client", "build", "index.html"))
     );
 } 
 else if (process.env.NODE_ENV === "development") {
