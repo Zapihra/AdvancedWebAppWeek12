@@ -38,7 +38,6 @@ router.get('/api/getBook/:id', function (req,res) {
       return res.sendStatus(404)
     }
     else {
-      console.log(book)
       return res.json({
         "name": book.name,
         "author": book.author,
