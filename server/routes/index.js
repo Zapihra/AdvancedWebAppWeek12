@@ -29,5 +29,25 @@ router.post('/api/book', function(req,res) {
   res.send("ok")
 })
 
+router.get('/api/getBook/:id', function (req,res) {
+
+  var id = req.params.id
+
+  Book.findOne({name: id}, (err, book) => {
+    if(!book) {
+      return res.sendStatus(404)
+    }
+    else {
+      console.log(book)
+      return res.json({
+        "name": book.name,
+        "author": book.author,
+        "pages": book.pages
+      }).status(200)
+    }
+
+
+  })
+})
 
 module.exports = router;
